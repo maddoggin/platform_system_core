@@ -234,13 +234,6 @@ on post-fs-data
 
     # create the lost+found directories, so as to enforce our permissions
     mkdir /data/lost+found 0770 root root
-    mkdir /cache/list+found 0770 root root
-
-    # Fix permissions in case lost+found existed before
-    chown root root /data/lost+found
-    chmod 0770 /data/lost+found
-    chown root root /cache/lost+found
-    chmod 0770 /cache/lost+found
 
     # create directory for DRM plug-ins - give drm the read/write access to
     # the following directory.
