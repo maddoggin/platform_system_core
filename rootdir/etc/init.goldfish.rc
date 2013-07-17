@@ -3,15 +3,17 @@ on early-init
     mkdir /mnt/sdcard 0000 system system
     # for backwards compatibility
     symlink /mnt/sdcard /sdcard
+    mount debugfs debugfs /sys/kernel/debug
 
 on boot
-    setsebool in_qemu=1
+    setsebool in_qemu 1
     restorecon /sys/qemu_trace/process_name
     restorecon /sys/qemu_trace/state
     restorecon /sys/qemu_trace/symbol
     setprop ARGH ARGH
     setprop net.eth0.gw 10.0.2.2
     setprop net.eth0.dns1 10.0.2.3
+    setprop net.dns1 10.0.2.3
     setprop net.gprs.local-ip 10.0.2.15
     setprop ro.radio.use-ppp no
     setprop ro.build.product generic
