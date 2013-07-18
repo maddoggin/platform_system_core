@@ -518,6 +518,15 @@ service sshd /system/bin/start-ssh
     class main
     disabled
 
+    # Run sysinit
+    start sysinit
+
+# sysinit (/system/etc/init.d)
+service sysinit /system/bin/sysinit
+    user root
+    oneshot
+    disabled
+
 service mdnsd /system/bin/mdnsd
     class main
     user mdnsr
