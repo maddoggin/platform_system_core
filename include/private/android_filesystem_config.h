@@ -62,11 +62,10 @@
 #define AID_DRMRPC        1026  /* group for drm rpc */
 #define AID_NFC           1027  /* nfc subsystem */
 #define AID_SDCARD_R      1028  /* external storage read access */
-<<<<<<< HEAD
 #define AID_CLAT          1029  /* clat part of nat464 */
-=======
 #define AID_AUDIT         1031  /* audit daemon */
->>>>>>> 1f34e1c... Reserve AID_AUDIT
+
+#define AID_THEMEMAN      1300  /* theme manager */
 
 #define AID_SHELL         2000  /* adb and debug shell user */
 #define AID_CACHE         2001  /* cache access */
@@ -144,11 +143,9 @@ static const struct android_id_info android_ids[] = {
     { "net_bw_acct", AID_NET_BW_ACCT, },
     { "misc",      AID_MISC, },
     { "nobody",    AID_NOBODY, },
-<<<<<<< HEAD
     { "clat",      AID_CLAT, },
-=======
+    { "theme_man", AID_THEMEMAN },
     { "audit",      AID_AUDIT, },
->>>>>>> 1f34e1c... Reserve AID_AUDIT
 };
 
 #define android_id_count \
@@ -235,6 +232,7 @@ static struct fs_path_config android_files[] = {
     { 00750, AID_ROOT,      AID_SHELL,     "charger*" },
     { 00750, AID_ROOT,      AID_SHELL,     "sbin/fs_mgr" },
     { 00640, AID_ROOT,      AID_SHELL,     "fstab.*" },
+    { 00755, AID_ROOT,      AID_SHELL,     "system/etc/init.d/*" },
     { 00644, AID_ROOT,      AID_ROOT,       0 },
 };
 
